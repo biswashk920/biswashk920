@@ -250,12 +250,12 @@ I'm always interested in connecting with people working in:
 ## 📊 GitHub Stats
 
 <p align="center">
-<img src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=tokyonight&hide_border=true" height="170"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&theme=tokyonight&hide_border=true" height="170"/>
+<img src="https://github-readme-stats.vercel.app/api?username=biswashk920&show_icons=true&theme=tokyonight&hide_border=true" height="170"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=biswashk920&layout=compact&theme=tokyonight&hide_border=true" height="170"/>
 </p>
 
 ---
 
 ### 🌊 *Engineering water problems with data, models, and code.*
 
-![Profile Views](https://komarev.com/ghpvc/?username=YOUR_USERNAME&color=blue&style=flat-square)
+![Profile Views](https://komarev.com/ghpvc/?username=biswashk920&color=blue&style=flat-square)
