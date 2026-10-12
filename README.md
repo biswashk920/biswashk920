@@ -30,7 +30,7 @@ Notebooks and scripts on the Kali Gandaki and other Himalayan catchments.
 
 ## Small computation labs
 
-Short Python exercises for hydraulics and structures: [hydraulic-jump](https://github.com/biswashk920/hydraulic-jump), [1D-Saint-Venant-River-Routing](https://github.com/biswashk920/1D-Saint-Venant-River-Routing), [hydrograph_lab](https://github.com/biswashk920/hydrograph_lab), [channel-design-optimizer](https://github.com/biswashk920/channel-design-optimizer), [RiverFlow-Lab](https://github.com/biswashk920/RiverFlow-Lab), [rc-beam-lab](https://github.com/biswashk920/rc-beam-lab), [BeamAnalysis](https://github.com/biswashk920/BeamAnalysis)
+Short Python exercises for hydraulics and structures: [hydraulic-jump](https://github.com/biswashk920/hydraulic-jump), [1D-Saint-Venant-River-Routing](https://github.com/biswashk920/1D-Saint-Venant-River-Routing), [hydrograph_lab](https://github.com/biswashk920/hydrograph_lab), [channel-design-optimizer](https://github.com/biswashk920/channel-design-optimizer), [RiverFlow-Lab](https://github.com/biswashk920/RiverFlow-Lab), [rc-beam-lab](https://github.com/biswashk920/rc-beam-lab),
 
 ## Contact
 
