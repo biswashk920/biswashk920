@@ -15,12 +15,22 @@ I have first-author papers on:
 
 Working knowledge of Python (including PyTorch), QGIS, Google Earth Engine, HEC-RAS and SWMM/PCSWMM. I have used SWAT and SWAT-CUP once. I am still learning to write cleaner, more reproducible code, and the repositories below are part of that.
 
-## Repositories
+## Code
 
+Notebooks and scripts on the Kali Gandaki and other Himalayan catchments.
+
+- [Flood_In_KaliGandaki](https://github.com/biswashk920/Flood_In_KaliGandaki): flood and inundation risk mapping for the Kali Gandaki watershed using HAND (Height Above Nearest Drainage)
+- [WaterShed_Screening_For_Hydropower_ROR](https://github.com/biswashk920/WaterShed_Screening_For_Hydropower_ROR): DEM-based screening of candidate run-of-river hydropower reaches, Kali Gandaki
 - [morphometric-pca-himalayan-basins](https://github.com/biswashk920/morphometric-pca-himalayan-basins): principal component analysis of morphometric parameters of a catchment
 - [Temperature_Reconstruction](https://github.com/biswashk920/Temperature_Reconstruction): reconstructing temperature at a station from neighbouring stations
-- [Chi-Sq-test-for-rainfall](https://github.com/biswashk920/Chi-Sq-test-for-rainfall): best-fit comparison of precipitation distributions
-- [BeamAnalysis](https://github.com/biswashk920/BeamAnalysis): bending moment and shear force diagrams for a simply supported beam
+- [budi-gandaki-landslideFlood](https://github.com/biswashk920/budi-gandaki-landslideFlood): <confirm: what this analyses>
+- [watershed-delineation](https://github.com/biswashk920/watershed-delineation): <confirm: method and tools>
+- [Frequency_Analysis](https://github.com/biswashk920/Frequency_Analysis): <confirm: rainfall or flow data, which distributions>
+- [Glacial-Lakes-Detection-CNN](https://github.com/biswashk920/Glacial-Lakes-Detection-CNN): <confirm: data, model, and whether it is finished or exploratory>
+
+## Small computation labs
+
+Short Python exercises for hydraulics and structures: [hydraulic-jump](https://github.com/biswashk920/hydraulic-jump), [1D-Saint-Venant-River-Routing](https://github.com/biswashk920/1D-Saint-Venant-River-Routing), [hydrograph_lab](https://github.com/biswashk920/hydrograph_lab), [channel-design-optimizer](https://github.com/biswashk920/channel-design-optimizer), [RiverFlow-Lab](https://github.com/biswashk920/RiverFlow-Lab), [rc-beam-lab](https://github.com/biswashk920/rc-beam-lab), [BeamAnalysis](https://github.com/biswashk920/BeamAnalysis)
 
 ## Contact
 
