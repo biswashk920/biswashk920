@@ -13,7 +13,7 @@ I have first-author papers on:
 
 ## Tools
 
-Working knowledge of Python (including PyTorch), QGIS, Google Earth Engine, HEC-RAS and SWMM/PCSWMM. I have used SWAT and SWAT-CUP once. I am still learning to write cleaner, more reproducible code, and the repositories below are part of that.
+Working knowledge of Python (including PyTorch), QGIS, Google Earth Engine, HEC-RAS and SWMM/PCSWMM. I have used SWAT and SWAT-CUP. I am still learning to write cleaner, more reproducible code, and the repositories below are part of that.
 
 ## Code
 
@@ -22,11 +22,11 @@ Notebooks and scripts on the Kali Gandaki and other Himalayan catchments.
 - [Flood_In_KaliGandaki](https://github.com/biswashk920/Flood_In_KaliGandaki): flood and inundation risk mapping for the Kali Gandaki watershed using HAND (Height Above Nearest Drainage)
 - [WaterShed_Screening_For_Hydropower_ROR](https://github.com/biswashk920/WaterShed_Screening_For_Hydropower_ROR): DEM-based screening of candidate run-of-river hydropower reaches, Kali Gandaki
 - [morphometric-pca-himalayan-basins](https://github.com/biswashk920/morphometric-pca-himalayan-basins): principal component analysis of morphometric parameters of a catchment
-- [Temperature_Reconstruction](https://github.com/biswashk920/Temperature_Reconstruction): reconstructing temperature at a station from neighbouring stations
-- [budi-gandaki-landslideFlood](https://github.com/biswashk920/budi-gandaki-landslideFlood): <confirm: what this analyses>
-- [watershed-delineation](https://github.com/biswashk920/watershed-delineation): <confirm: method and tools>
-- [Frequency_Analysis](https://github.com/biswashk920/Frequency_Analysis): <confirm: rainfall or flow data, which distributions>
-- [Glacial-Lakes-Detection-CNN](https://github.com/biswashk920/Glacial-Lakes-Detection-CNN): <confirm: data, model, and whether it is finished or exploratory>
+- [Temperature_Reconstruction](https://github.com/biswashk920/Temperature_Reconstruction): reconstructing temperature at a station from neighbouring stations, ML XGBOOST
+- [budi-gandaki-landslideFlood](https://github.com/biswashk920/budi-gandaki-landslideFlood): a event based analysis of the cause of flooding, 11th october 2026, flooding in budigandaki
+- [watershed-delineation](https://github.com/biswashk920/watershed-delineation): GEE, Whitetoolbox to deleniate watershed, Inputs: rectangular DEM extent and a outlet.
+- [Frequency_Analysis](https://github.com/biswashk920/Frequency_Analysis): Rainfall,Discharge, Gumbel LP3, LN , GEV distribution.
+- [Glacial-Lakes-Detection-CNN](https://github.com/biswashk920/Glacial-Lakes-Detection-CNN): exploratory, DL model, did not give plausible results, still exploring
 
 ## Small computation labs
 
