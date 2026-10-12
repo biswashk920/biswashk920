@@ -13,7 +13,7 @@ I have first-author papers on:
 
 ## Tools
 
-Working knowledge of Python (including PyTorch), QGIS, Google Earth Engine, HEC-RAS and SWMM/PCSWMM. I have used SWAT and SWAT-CUP. I am still learning to write cleaner, more reproducible code, and the repositories below are part of that.
+Working knowledge of Python (including PyTorch), QGIS, Google Earth Engine, HEC-RAS and SWMM/PCSWMM, SWAT+. I am still learning to write cleaner, more reproducible code, and the repositories below are part of that.
 
 ## Code
 
