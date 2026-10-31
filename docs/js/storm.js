@@ -116,7 +116,6 @@
     }
     ctx.textAlign = "right"; ctx.fillText("rainfall", W - 2, 14);
     ctx.font = "12px 'IBM Plex Sans', system-ui, sans-serif";
-    ctx.fillText("grey soaks in, blue runs off", W - 2, 30);
     ctx.fillText("infiltration", W - 2, BASE + 16);
     ctx.font = "13px 'IBM Plex Sans', system-ui, sans-serif";
     ctx.fillText("time", W - 2, H - 8);
