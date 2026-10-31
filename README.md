@@ -1,6 +1,6 @@
 # Biswash Kaphle
 
-### 🌐 [**biswashk920.github.io**](https://biswashk920.github.io): my personal website, with research, publications and projects
+### 🌐 [Personal Website](https://biswashk920.github.io)
 
 ---
 
