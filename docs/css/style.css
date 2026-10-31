@@ -26,9 +26,8 @@ p{margin:0 0 1rem;max-width:40rem}
 .links{font:500 .95rem "IBM Plex Sans",system-ui,sans-serif}.links a{margin-right:1.1rem}
 footer{padding:2rem 1.25rem 3rem;color:var(--muted);font:.9rem "IBM Plex Sans",system-ui,sans-serif;border-top:1px solid var(--rule)}
 
-.storm{margin:0}.storm canvas{display:block;width:100%;cursor:pointer}
+.storm{margin:0}.storm canvas{display:block;width:100%}
 .storm figcaption{margin-top:.5rem;color:var(--muted);font:.9rem/1.5 "IBM Plex Sans",system-ui,sans-serif}
-.storm button{margin-left:.4rem}
 h3{margin:2rem 0 .6rem}h4{margin:0 0 .2rem;font-size:1.1rem;font-weight:600}
 .pubs{list-style:none;padding:0}.pubs li{padding:0}
 .repos{margin:0;padding-left:1.2rem;max-width:40rem}.repos li{margin-bottom:.45rem}

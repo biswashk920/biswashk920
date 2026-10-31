@@ -5,8 +5,8 @@
   var ctx = cv.getContext("2d");
   var N = 220, H = 300, RAINH = 92, BASE = H - 30, DUR = 7000;
   var W = 640, dpr = 1, rain = [], rh = [], q = [], peak = 0, t = 0, hold = 0, clock = 0, visible = true;
-  // If the visitor's system asks for reduced motion, show a still graph and animate only when they click.
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Always plays and loops, even if the device has a reduced-motion setting.
+  var reduce = false;
 
   function rnd(a, b) { return a + Math.random() * (b - a); }
   function px(i) { return i / (N - 1) * W; }
@@ -111,9 +111,6 @@
     draw();
   }
 
-  function restart() { newStorm(); draw(); }
-  document.getElementById("newstorm").addEventListener("click", restart);
-  cv.addEventListener("click", restart);
   if ("ResizeObserver" in window) new ResizeObserver(resize).observe(cv.parentNode);
   else window.addEventListener("resize", resize);
   if ("IntersectionObserver" in window)
