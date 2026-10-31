@@ -1,10 +1,11 @@
-// Rain falls, a unit hydrograph routes it to a river response, then a new random storm starts.
+// Rainfall (top) falls and a unit hydrograph (bottom) grows in response. Then a new random storm starts.
 (function () {
   var cv = document.getElementById("storm");
   if (!cv || !cv.getContext) return;
   var ctx = cv.getContext("2d");
-  var N = 220, H = 230, RAIN = 64, BASE = H - 30;
-  var W = 640, dpr = 1, rain = [], rh = [], q = [], peak = 0, t = 0, hold = 0, visible = true;
+  var N = 220, H = 300, RAINH = 92, BASE = H - 30, DUR = 7000;
+  var W = 640, dpr = 1, rain = [], rh = [], q = [], peak = 0, t = 0, hold = 0, clock = 0, visible = true;
+  // If the visitor's system asks for reduced motion, show a still graph and animate only when they click.
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function rnd(a, b) { return a + Math.random() * (b - a); }
@@ -19,16 +20,16 @@
       for (i = 0; i < N; i++) rain[i] += a * Math.exp(-Math.pow((i - c) / w, 2) / 2);
       c += rnd(14, 28);
     }
-    var rmax = Math.max.apply(null, rain), f = rnd(0.55, 1);
-    rh = rain.map(function (v) { return v / rmax * f * (RAIN - 8); });
+    var rmax = Math.max.apply(null, rain), f = rnd(0.6, 1);
+    rh = rain.map(function (v) { return v / rmax * f * (RAINH - 10); });
     var K = rnd(10, 16), h = [];
     for (i = 0; i < N; i++) { var x = i / K; h.push(x * x * Math.exp(-x) / (2 * K)); }
     q = [];
     for (i = 0; i < N; i++) { var s = 0; for (j = 0; j <= i; j++) s += rain[j] * h[i - j]; q.push(s); }
-    var qmax = Math.max.apply(null, q), scale = rnd(0.55, 0.95) * (BASE - RAIN - 14) / qmax;
+    var qmax = Math.max.apply(null, q), scale = rnd(0.6, 0.95) * (BASE - RAINH - 24) / qmax;
     q = q.map(function (v) { return v * scale; });
     peak = q.indexOf(Math.max.apply(null, q));
-    t = reduce ? N : 0; hold = 0;
+    t = 0; hold = 0;
   }
 
   function resize() {
@@ -45,24 +46,38 @@
         rule = cs.getPropertyValue("--rule").trim();
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, W, H);
-    var te = Math.min(Math.floor(t), N - 1), i;
+    var te = Math.min(Math.floor(t), N - 1), i, k;
 
-    ctx.strokeStyle = rule; ctx.lineWidth = 1.5;
+    // panel divider and discharge baseline
+    ctx.strokeStyle = rule; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, RAINH + 4); ctx.lineTo(W, RAINH + 4); ctx.stroke();
+    ctx.lineWidth = 1.5;
     ctx.beginPath(); ctx.moveTo(0, BASE); ctx.lineTo(W, BASE); ctx.stroke();
 
+    // rainfall bars hang from the top
     var bw = Math.max(1.5, W / N * 0.75);
     ctx.fillStyle = muted; ctx.globalAlpha = 0.5;
     for (i = 0; i <= te; i++) if (rh[i] > 0.4) ctx.fillRect(px(i) - bw / 2, 0, bw, rh[i]);
 
-    if (t < N && rh[te] > 3) {
-      ctx.strokeStyle = water; ctx.globalAlpha = 0.55; ctx.lineWidth = 1.2;
-      var drops = Math.ceil(rh[te] / 6), ymax = BASE - q[te] - 6;
-      for (i = 0; i < drops; i++) {
-        var dx = px(te) + (Math.random() - 0.5) * 36, dy = rh[te] + Math.random() * Math.max(0, ymax - rh[te]);
-        ctx.beginPath(); ctx.moveTo(dx, dy); ctx.lineTo(dx - 1.5, dy + 7); ctx.stroke();
+    // falling drops under the recent bars
+    if (t < N) {
+      ctx.strokeStyle = water; ctx.globalAlpha = 0.7; ctx.lineWidth = 1.3;
+      for (i = Math.max(0, te - 6); i <= te; i++) {
+        var span = RAINH - 4 - rh[i];
+        if (rh[i] < 3 || span < 6) continue;
+        var cnt = Math.ceil(rh[i] / 20) + 1;
+        for (k = 0; k < cnt; k++) {
+          var y = rh[i] + (clock * 0.18 + k * 41 + i * 17) % span, x = px(i) + ((k * 13 + i * 7) % 9 - 4);
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 1.5, y + 7); ctx.stroke();
+        }
       }
+      // "now" line linking rainfall to the response
+      ctx.strokeStyle = muted; ctx.globalAlpha = 0.3; ctx.lineWidth = 1; ctx.setLineDash([3, 4]);
+      ctx.beginPath(); ctx.moveTo(px(te), RAINH + 4); ctx.lineTo(px(te), BASE); ctx.stroke();
+      ctx.setLineDash([]);
     }
 
+    // hydrograph: filled area and line, growing with time
     ctx.globalAlpha = 0.14; ctx.fillStyle = water;
     ctx.beginPath(); ctx.moveTo(0, BASE);
     for (i = 0; i <= te; i++) ctx.lineTo(px(i), BASE - q[i]);
@@ -70,7 +85,7 @@
 
     ctx.globalAlpha = 1; ctx.strokeStyle = water; ctx.lineWidth = 3; ctx.lineJoin = "round"; ctx.lineCap = "round";
     ctx.beginPath();
-    for (i = 0; i <= te; i++) { var y = BASE - q[i]; if (i) ctx.lineTo(px(i), y); else ctx.moveTo(px(i), y); }
+    for (i = 0; i <= te; i++) { var yy = BASE - q[i]; if (i) ctx.lineTo(px(i), yy); else ctx.moveTo(px(i), yy); }
     ctx.stroke();
 
     ctx.font = "13px 'IBM Plex Sans', system-ui, sans-serif"; ctx.fillStyle = muted;
@@ -81,7 +96,7 @@
     }
     ctx.textAlign = "right"; ctx.fillText("rainfall", W - 2, 14);
     ctx.fillText("time", W - 2, H - 8);
-    ctx.textAlign = "left"; ctx.fillText("river discharge", 0, H - 8);
+    ctx.textAlign = "left"; ctx.fillText("river discharge", 0, RAINH + 22); ctx.fillText("rain begins, the river responds later", 0, H - 8);
   }
 
   var last = 0;
@@ -89,8 +104,10 @@
     window.requestAnimationFrame(frame);
     var dt = Math.min(now - last, 50); last = now;
     if (!visible || document.hidden) return;
-    if (t < N) t = Math.min(N, t + dt / (7000 / N));
-    else { hold += dt; if (hold > 3800) newStorm(); }
+    clock += dt;
+    if (t < N) t = Math.min(N, t + dt / (DUR / N));
+    else if (!reduce) { hold += dt; if (hold > 3800) newStorm(); }
+    else return;
     draw();
   }
 
@@ -103,6 +120,7 @@
     new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(cv);
   new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
-  newStorm(); resize();
-  if (!reduce) window.requestAnimationFrame(frame);
+  newStorm(); if (reduce) t = N;
+  resize();
+  window.requestAnimationFrame(frame);
 })();
